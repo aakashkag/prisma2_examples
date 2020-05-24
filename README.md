@@ -8,6 +8,10 @@ Database: Postgres
 Language: Node JS
 Other: GraphQL + Prisma2
 
+## Example Query and Mutation
+
+Note: check doc folder for example query and mutation
+
 ## Setup
 
 Create db tables if needed:
