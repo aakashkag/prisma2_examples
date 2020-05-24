@@ -1,0 +1,17 @@
+1) Get all Users
+query{
+  getAllUser{
+    user_id
+    user_name
+    user_email
+    user_password
+  }
+}
+
+2) get all Organization
+query{
+  getAllOrganization{
+    organization_id
+    organization_name
+  }
+}

@@ -1,0 +1,12 @@
+node_modules
+build
+npm-debug.log*
+*.log
+*.swp
+*.swo
+bower_components
+.npm
+.DS_Store
+.idea/*
+/src/generated/
+/src/schema.../generated/

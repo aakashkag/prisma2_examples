@@ -1,0 +1,74 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource postgresql {
+  provider = "postgresql"
+  url      = "postgresql://postgres:yourpasswordhere@localhost:5432/prismaexample?schema$"
+}
+
+model Assigned_Role {
+  assigned_role_id    Int              @default(autoincrement()) @id
+  organization_id     Int              @default(autoincrement())
+  role_id             Int              @default(autoincrement())
+  sub_organization_id Int              @default(autoincrement())
+  user_id             Int              @default(autoincrement())
+  Organization        Organization     @relation(fields: [organization_id], references: [organization_id])
+  Role                Role             @relation(fields: [role_id], references: [role_id])
+  Sub_Organization    Sub_Organization @relation(fields: [sub_organization_id], references: [sub_organization_id])
+  User                User             @relation(fields: [user_id], references: [user_id])
+}
+
+model Organization {
+  organization_created_at  DateTime
+  organization_description String
+  organization_id          Int                @default(autoincrement()) @id
+  organization_logo        String
+  organization_name        String             @unique
+  organization_size        Int?
+  organization_type        String             @default("private")
+  organization_updated_at  DateTime
+  organization_website     String
+  Assigned_Role            Assigned_Role[]
+  Sub_Organization         Sub_Organization[]
+}
+
+model Role {
+  role_id       Int             @default(autoincrement()) @id
+  role_name     String
+  Assigned_Role Assigned_Role[]
+}
+
+model Sub_Organization {
+  organization_id              Int             @default(autoincrement())
+  sub_organization_created_at  DateTime
+  sub_organization_description String
+  sub_organization_id          Int             @default(autoincrement()) @id
+  sub_organization_logo        String
+  sub_organization_name        String
+  sub_organization_size        Int?
+  sub_organization_type        String
+  sub_organization_updated_at  DateTime
+  sub_organization_website     String
+  Organization                 Organization    @relation(fields: [organization_id], references: [organization_id])
+  Assigned_Role                Assigned_Role[]
+}
+
+model User {
+  user_active_status   Boolean         @default(false)
+  user_avatar          String?
+  user_biography       String?
+  user_birthday        DateTime
+  user_email           String
+  user_email_verified  Boolean         @default(false)
+  user_first_name      String
+  user_gender          String?
+  user_id              Int             @default(autoincrement()) @id
+  user_last_name       String
+  user_mobile          Int
+  user_mobile_verified Boolean         @default(false)
+  user_name            String
+  user_password        String          @default("false")
+  user_time_zone       DateTime?
+  Assigned_Role        Assigned_Role[]
+}
