@@ -9,22 +9,29 @@ const assignRole = mutationField('assignRole', {
         sub_organization_id: intArg(),
     },
     resolve: (_, args, ctx) => {
-        args['user'] = {
-            connect: {
-                user_id: args.user_id,
-            },
-        };
-        args['role'] = {
-            connect: {
-                role_id: args.role_id,
-            },
-        };
-
-        delete args['user_id'];
-        delete args['role_id'];
-
         return ctx.prisma.assigned_Role.create({
-            data: args,
+            data: {
+                Organization: {
+                    connect: {
+                        organization_id: args.organization_id,
+                    },
+                },
+                Sub_Organization: {
+                    connect: {
+                        sub_organization_id: args.sub_organization_id,
+                    },
+                },
+                User: {
+                    connect: {
+                        user_id: args.user_id,
+                    },
+                },
+                Role: {
+                    connect: {
+                        role_id: args.role_id,
+                    },
+                },
+            },
         });
     },
 });
