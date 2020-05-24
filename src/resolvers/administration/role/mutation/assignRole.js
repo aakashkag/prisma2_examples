@@ -1,11 +1,4 @@
-const {
-    stringArg,
-    intArg,
-    arg,
-    core,
-    mutationField,
-} = require('@nexus/schema');
-const dateTimeArg = (opts) => arg({ ...opts, type: 'DateTime' });
+const { intArg, mutationField } = require('@nexus/schema');
 
 const assignRole = mutationField('assignRole', {
     type: 'Assigned_Role',
@@ -30,30 +23,9 @@ const assignRole = mutationField('assignRole', {
         delete args['user_id'];
         delete args['role_id'];
 
-        console.log('after===>', args);
-        // return ctx.prisma.assigned_Role.create({
-        //     data: args,
-        // });
-        const data = ctx.prisma.user.create({
-            data: {
-                Assigned_Role: {
-                    create: {
-                        user_id: {
-                            create: {
-                                user_id: 1,
-                            },
-                        },
-                        role: {
-                            create: {
-                                role_id: 1,
-                            },
-                        },
-                    },
-                },
-            },
+        return ctx.prisma.assigned_Role.create({
+            data: args,
         });
-        console.log(data);
-        return data;
     },
 });
 
