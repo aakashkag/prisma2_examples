@@ -12,7 +12,7 @@ Other: GraphQL + Prisma2
 
 Create db tables if needed:
 
-> sudo psql -h localhost -d prismaexample -U postgres -p 5432 -a -q -f ./prisma/LMS_postgres_create3.sql
+> sudo psql -h localhost -d prismaexample -U postgres -p 5432 -a -q -f ./prisma/LMS_postgres_create_v1.sql
 
 1. Install all dependency
     > npm install
