@@ -39,4 +39,4 @@ Note: Make sure you are running correct environment
 ## Developer Help:
 
 Aakash Kag:
-sudo[https://www.linkedin.com/in/aakashkag/](https://www.linkedin.com/in/aakashkag/)
+[https://www.linkedin.com/in/aakashkag/](https://www.linkedin.com/in/aakashkag/)
