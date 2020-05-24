@@ -39,9 +39,4 @@ Note: Make sure you are running correct environment
 ## Developer Help:
 
 Aakash Kag:
-
-Mobile: +44-7721445620 (Whatsapp / Call)
-
-Email: Aakashkaginfo@gmail.com
-
 sudo[https://www.linkedin.com/in/aakashkag/](https://www.linkedin.com/in/aakashkag/)
