@@ -4,19 +4,19 @@ generator client {
 
 datasource postgresql {
   provider = "postgresql"
-  url      = "postgresql://postgres:yourpasswordhere@localhost:5432/prismaexample?schema$"
+  url      = "postgresql://postgres:passwordhere@localhost:5432/prismaexample?schema$"
 }
 
 model Assigned_Role {
-  assigned_role_id    Int              @default(autoincrement()) @id
-  organization_id     Int              @default(autoincrement())
-  role_id             Int              @default(autoincrement())
-  sub_organization_id Int              @default(autoincrement())
-  user_id             Int              @default(autoincrement())
-  Organization        Organization     @relation(fields: [organization_id], references: [organization_id])
-  Role                Role             @relation(fields: [role_id], references: [role_id])
-  Sub_Organization    Sub_Organization @relation(fields: [sub_organization_id], references: [sub_organization_id])
-  User                User             @relation(fields: [user_id], references: [user_id])
+  assigned_role_id    Int               @default(autoincrement()) @id
+  organization_id     Int               @default(autoincrement())
+  role_id             Int               @default(autoincrement())
+  sub_organization_id Int               @default(autoincrement())
+  user_id             Int               @default(autoincrement())
+  Organization        Organization?     @relation(fields: [organization_id], references: [organization_id])
+  Role                Role              @relation(fields: [role_id], references: [role_id])
+  Sub_Organization    Sub_Organization? @relation(fields: [sub_organization_id], references: [sub_organization_id])
+  User                User              @relation(fields: [user_id], references: [user_id])
 }
 
 model Organization {
